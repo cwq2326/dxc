@@ -4,5 +4,5 @@
 
 ## To clone to repo
 ```
-git@github.com:cwq2326/dxc.git
+git clone git@github.com:cwq2326/dxc.git
 ```
