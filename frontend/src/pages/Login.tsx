@@ -32,13 +32,27 @@ function Copyright(props: any) {
 }
 
 export default function Login() {
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
   const { updateAuth } = useAuth();
   const [username, setUsername] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
   const navigate = useNavigate();
 
+  const validateFormData = () => {
+    if (username === "" || username.length > 32) {
+      alert("Username cannot be empty");
+      return false;
+    }
+    if (password === "" || password.length > 32) {
+      alert("Password cannot be empty");
+      return false;
+    }
+  }
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!validateFormData()) return;
+
     const details = {
       username,
       password,
@@ -55,9 +69,14 @@ export default function Login() {
           isAuth: true,
         });
         navigate("/");
+      } else {
+        throw new Error("Invalid userid or password")
       }
     } catch (e) {
       console.error(e);
+      if (e instanceof Error) {
+        setErrorMessage(e.message)
+      }
     }
   };
 
@@ -105,6 +124,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errorMessage && <Typography sx={{color: "red"}}>{errorMessage}</Typography>}
           <Button
             type="submit"
             fullWidth

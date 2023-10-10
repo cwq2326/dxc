@@ -17,7 +17,6 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  SelectChangeEvent,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../api/auth";
@@ -32,7 +31,7 @@ function Copyright(props: any) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        DXC
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
