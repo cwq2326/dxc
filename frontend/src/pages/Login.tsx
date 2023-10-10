@@ -47,6 +47,7 @@ export default function Login() {
       alert("Password cannot be empty");
       return false;
     }
+    return true;
   }
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
