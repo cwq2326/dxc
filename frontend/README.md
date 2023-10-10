@@ -12,9 +12,17 @@ Before you begin, ensure you have met the following requirements:
 ## Installation
 
 1. Clone the repository to your local machine
-1. `cd ./frontend`
-2. `npm install`
+2. Change directory to frontend
+```
+cd ./frontend
+```
+3. Install dependencies
+```
+npm install
+```
 
 ## Running App
 
-3. `npm run dev`
+```
+npm run dev
+```
